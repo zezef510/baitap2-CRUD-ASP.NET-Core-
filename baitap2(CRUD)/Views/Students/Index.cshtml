@@ -1,0 +1,83 @@
+﻿@model IEnumerable<baitap2_CRUD_.Models.Student>
+
+@using baitap2_CRUD_.Models
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Index</h1>
+<style>
+    .navigation-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+        .navigation-links li {
+            margin-right: 40px;
+            display: flex;
+            flex-wrap: wrap
+        }
+</style>
+
+<nav>
+    <ul class="navigation-links">
+        <li><a asp-action="Create">Tạo mới học sinh</a></li>
+        <li><a asp-action="Female">Hiển thị danh sách nữ</a></li>
+        <li><a asp-action="Male">Hiển thị danh sách nam</a><br /></li>
+        <li><a asp-action="ByBirthYear">Hiển thị danh sách học sinh sinh năm 2003</a></li>
+        <li><a asp-action="BySalary">Hiển thị danh sách hs có lương 10k</a></li>
+    </ul>
+</nav>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tuoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Luong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tuoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Luong)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.HocSinhID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.HocSinhID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.HocSinhID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

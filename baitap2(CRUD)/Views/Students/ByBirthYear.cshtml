@@ -1,0 +1,58 @@
+﻿@model IEnumerable<baitap2_CRUD_.Models.Student>
+
+@{
+    ViewData["Title"] = "Danh sách học sinh sinh năm 2003";
+}
+
+<h1>Danh sách học sinh sinh năm 2003</h1>
+<p><a asp-action="Index">Quay lại</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tuoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Luong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tuoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Luong)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.HocSinhID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.HocSinhID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.HocSinhID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
